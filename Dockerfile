@@ -10,7 +10,7 @@ RUN yum -y install --setopt=tsflags=nodocs http://dl.fedoraproject.org/pub/epel/
     yum -y --setopt=tsflags=nodocs install php-fpm php php-bcmath php-mysql php-common php-pdo php-mbstring php-pecl-redis \
     php-gd php-xml php-mcrypt php-soap php-pecl-imagick php-pecl-apc php-pecl-oauth php-pecl-igbinary php-pecl-memcached \
     php-cli php-pear python-pip redis memcached ImageMagick GraphicsMagick phpMyAdmin nodejs npm libpng-devel cairo-devel \
-    freetype-devel libjpeg-turbo-devel which tar bzip2 gcc make php-xdebug git; \
+    freetype-devel libjpeg-turbo-devel which tar bzip2 gcc make autoconf automake libtool php-xdebug git; \
     rm -rf /var/cache/yum/*; \
     yum clean all
 
