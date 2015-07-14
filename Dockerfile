@@ -2,7 +2,7 @@ FROM centos:6
 MAINTAINER Marijn Giesen <marijn@studio-donder.nl>
 
 # Install repositories, update system and install software
-RUN yum -y install --setopt=tsflags=nodocs http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm \ 
+RUN yum -y install --setopt=tsflags=nodocs http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm \
     http://rpms.famillecollet.com/enterprise/remi-release-6.rpm \
     http://sphinxsearch.com/files/sphinx-2.2.7-1.rhel6.x86_64.rpm && \
     sed -i '5s/enabled=0/enabled=1/' /etc/yum.repos.d/remi.repo; \
@@ -15,7 +15,7 @@ RUN yum -y install --setopt=tsflags=nodocs http://dl.fedoraproject.org/pub/epel/
     yum clean all
 
 # Configure software
-RUN pip install pip --upgrade && pip install supervisor; \
+RUN pip install pip --upgrade && pip install setuptools --upgrade && pip install supervisor; \
     npm install -g grunt && npm install -g grunt-cli; \
     echo "NETWORKING=yes" > /etc/sysconfig/network; \
     rm -rf /tmp/*; \
@@ -30,7 +30,7 @@ COPY bootstrap/start_container /usr/bin/start_container
 
 RUN ln -sf /etc/service-config/supervisor/supervisord.conf /etc/supervisord.conf && \
     ln -sf /etc/service-config/php/www.conf /etc/php-fpm.d/www.conf && \
-    ln -sf /etc/service-config/php/php.ini /etc/php.ini && \ 
+    ln -sf /etc/service-config/php/php.ini /etc/php.ini && \
     ln -sf /etc/service-config/php/php-fpm.conf /etc/php-fpm.conf; \
     chmod 700 /usr/bin/start_container
 
