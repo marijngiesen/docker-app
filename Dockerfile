@@ -4,7 +4,7 @@ MAINTAINER Marijn Giesen <marijn@studio-donder.nl>
 # Install repositories, update system and install software
 RUN yum -y install --setopt=tsflags=nodocs http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm \
     http://rpms.famillecollet.com/enterprise/remi-release-6.rpm \
-    http://sphinxsearch.com/files/sphinx-2.2.7-1.rhel6.x86_64.rpm && \
+    http://sphinxsearch.com/files/sphinx-2.2.9-1.rhel6.x86_64.rpm && \
     sed -i '5s/enabled=0/enabled=1/' /etc/yum.repos.d/remi.repo; \
     yum -y update --setopt=tsflags=nodocs; \
     yum -y --setopt=tsflags=nodocs install php-fpm php php-bcmath php-mysql php-common php-pdo php-mbstring php-pecl-redis \
