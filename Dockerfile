@@ -32,6 +32,7 @@ RUN ln -sf /etc/service-config/supervisor/supervisord.conf /etc/supervisord.conf
     ln -sf /etc/service-config/php/www.conf /etc/php-fpm.d/www.conf && \
     ln -sf /etc/service-config/php/php.ini /etc/php.ini && \
     ln -sf /etc/service-config/php/php-fpm.conf /etc/php-fpm.conf; \
+    ln -sf /usr/share/zoneinfo/Europe/Amsterdam /etc/localtime; \
     chmod 700 /usr/bin/start_container
 
 EXPOSE 6379 9306 11211
